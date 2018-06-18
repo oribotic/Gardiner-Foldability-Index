@@ -6,6 +6,8 @@ For complete details about the rationale of the index, see the pdf file Origami-
 
 ## How to Use
 
+Download the Origami-Regularity-Index.blend file and open in blender, then:
+
 1. Import your mesh into the blend file.
 2. Select the mesh, and run the script by pressing the RUN SCRIPT button in the script window. 
 3. The script will write its output to the same directory as the .blend file. 
