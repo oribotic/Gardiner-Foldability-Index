@@ -60,6 +60,11 @@ regularity = {}
 #make file pointers to save results
 path = os.getcwd()+"/output/"
 
+try:
+    os.mkdir(path)
+except FileExistsError:
+    print("output dir exists.")
+
 file    = open(path + me.name + ".txt", 'w')
 summary = open(path + me.name + "_summary.txt", 'w')
 ln      = open(path + me.name + "_line.txt", 'w')
