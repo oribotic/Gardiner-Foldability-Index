@@ -28,3 +28,4 @@ On linux systems such as debian: sudo apt-get install blender
 3. Run: path/to/blender -b -P Origami-Regularity-Index.py -- creasepattern.obj
 4. Collect the data from the output directory 
 
+The command at 3. invokes blender -b runs in the background, -p calls the python script, and the -- allows the blender executable to accept arguments following, which should be the name of the obj file to import and analyse.
