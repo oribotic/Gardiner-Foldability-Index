@@ -18,8 +18,20 @@ import math
 import os
 from mathutils import Vector
 from collections import Counter
+import sys
 
-obj = bpy.context.object
+argv = sys.argv
+argv = argv[argv.index("--") + 1:]  # get all args after "--"
+
+print(argv[0])  # --> ['example', 'args', '123']
+
+file_loc = argv[0]
+imported_object = bpy.ops.import_scene.obj(filepath=file_loc)
+obj = bpy.context.selected_objects[0] ####<--Fix
+
+print('Imported name: ', obj.name)
+
+#obj = bpy.context.object
 me = obj.data
 
 edgeLengthDict = {}
@@ -46,10 +58,12 @@ allcriteria = {}
 regularity = {}
 
 #make file pointers to save results
-file = open(os.path.splitext(bpy.data.filepath)[0] + "__" +me.name + ".txt", 'w')
-summary = open(os.path.splitext(bpy.data.filepath)[0] + "__" +me.name + "_summary.txt", 'w')
-ln = open(os.path.splitext(bpy.data.filepath)[0] + "__" +me.name + "_line.txt", 'w')
-graph = open(os.path.splitext(bpy.data.filepath)[0] + "__" +me.name + "_graph.txt", 'w')
+path = os.getcwd()+"/output/"
+
+file    = open(path + me.name + ".txt", 'w')
+summary = open(path + me.name + "_summary.txt", 'w')
+ln      = open(path + me.name + "_line.txt", 'w')
+graph   = open(path + me.name + "_graph.txt", 'w')
 
 # ---------------------------------------------
 # function definitions
@@ -158,12 +172,13 @@ for i in edgeAngles:
 regularity["Parallelity"] = sumParallelEdges/totalEdges
 allcriteria["Parallelity"] = {
     "total": totalEdges, 
-    "count": sumsumAngleEquality
+    "count": sumParallelEdges,
     "points": regularity["Parallelity"]}
 
 # add all values to sumAngleEqualitydebug ("total:\t{}\tregular:\t{}".format(totalEdges, sumParallelEdges))
-debug ("Parallel Line RegusumAngleEqualityrmat(regularity["Parallelity"])) 
-debug ("Unique Line Angles:\t{}".format(len(edgesumAngleEqualitybug ("\n")  
+debug("total:\t{}\tregular:\t{}".format(totalEdges, sumParallelEdges))
+debug ("Parallel Line Regularity:\t{}".format(regularity["Parallelity"])) 
+debug ("Unique Line Angles:\t{}".format(len(edgeAngleDict)))
 debug ("--------------------------------")
 debug ("EDGE LENGTH\t\t\t\t1 point")
 debug ("--------------------------------sumAngleEquality")
