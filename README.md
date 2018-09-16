@@ -18,3 +18,13 @@ Download the Origami-Regularity-Index.blend file and open in blender, then:
 	 d. debug file, contains all of the data points.
 
 
+## Command Line Python Script
+
+Prerequisites: Blender > 2.78 from www.blender.org
+On linux systems such as debian: sudo apt-get install blender
+
+1. Download Origami-Regularity-Index.py
+2. Copy a crease pattern to the same directory
+3. Run: path/to/blender -b -P Origami-Regularity-Index.py -- creasepattern.obj
+4. Collect the data from the output directory 
+
